@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pravaah 2026 | Upcoming Event</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+        }
+
+        .hero{
+            background: linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
+            url('https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            color: rgb(177, 135, 135);
+            height: 100vh;
+            display:flex;
+            align-items:center;
+            text-align:center;
+        }
+
+        .countdown-box{
+            background:#fff;
+            color:#000;
+            border-radius:10px;
+            padding:15px;
+            box-shadow:0 5px 15px rgba(0,0,0,.2);
+        }
+
+        .section-title{
+            font-weight:bold;
+            color:#0d6efd;
+        }
+
+        .highlight-card{
+            transition:0.3s;
+        }
+
+        .highlight-card:hover{
+            transform:translateY(-8px);
+        }
+
+        footer{
+            background:#212529;
+            color:rgb(255, 255, 255);
+            padding:20px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+<div class="container">
+<a class="navbar-brand fw-bold" href="#">PRAVAAH</a>
+
+<button class="navbar-toggler" data-bs-toggle="collapse"
+data-bs-target="#menu">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="menu">
+<ul class="navbar-nav ms-auto">
+<li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+<li class="nav-item"><a class="nav-link" href="#highlights">Highlights</a></li>
+<li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+</ul>
+</div>
+</div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+<div class="container">
+<h1 class="display-3 fw-bold">PRAVAAH 2026</h1>
+<p class="lead">Experience Innovation • Culture • Inspiration</p>
+
+<div class="row justify-content-center mt-4">
+<div class="col-md-8">
+<div class="countdown-box">
+<h3 id="countdown"></h3>
+</div>
+</div>
+</div>
+
+<a href="#" class="btn btn-warning btn-lg mt-4">
+Register Now
+</a>
+
+</div>
+</section>
+
+<!-- About -->
+<section id="about" class="py-5">
+<div class="container">
+<h2 class="text-center section-title mb-4">About Pravaah</h2>
+
+<p class="text-center">
+Pravaah is an exciting annual event that brings together
+students, innovators, artists, and professionals for a day full
+of learning, competitions, cultural performances, networking,
+and entertainment.
+</p>
+
+</div>
+</section>
+
+<!-- Highlights -->
+<section id="highlights" class="bg-light py-5">
+<div class="container">
+
+<h2 class="text-center section-title mb-5">
+Event Highlights
+</h2>
+
+<div class="coloum">
+
+<div class="col-md-4 mb-4">
+<div class="card highlight-card shadow h-100">
+<div class="card-body text-center">
+<h3>🎤</h3>
+<h4>Guest Speakers</h4>
+<p>Industry experts sharing valuable insights.</p>
+</div>
+</div>
+</div>
+
+<div class="col-md-4 mb-4">
+<div class="card highlight-card shadow h-100">
+<div class="card-body text-center">
+<h3>🏆</h3>
+<h4>Competitions</h4>
+<p>Coding, Quiz, Hackathon and Creative Events.</p>
+</div>
+</div>
+</div>
+
+<div class="col-md-4 mb-4">
+<div class="card highlight-card shadow h-100">
+<div class="card-body text-center">
+<h3>🎶</h3>
+<h4>Cultural Night</h4>
+<p>Music, Dance and Live Performances.</p>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="py-5">
+<div class="container text-center">
+
+<h2 class="section-title mb-4">Contact Us</h2>
+
+<p>Email: pravaah@example.com</p>
+
+<p>Phone: +91 9876543210</p>
+
+<p>Venue: SKIT College Auditorium</p>
+
+<button class="btn btn-primary"
+onclick="registerAlert()">
+Register Now
+</button>
+
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="text-center">
+<p class="mb-0">
+© 2026 PRAVAAH Event | Designed with Bootstrap
+</p>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+
+// Event Date
+const eventDate = new Date("July 10, 2026 09:00:00").getTime();
+
+const timer = setInterval(function(){
+
+const now = new Date().getTime();
+
+const distance = eventDate - now;
+
+const days = Math.floor(distance/(1000*60*60*24));
+
+const hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+
+const minutes = Math.floor((distance%(1000*60*60))/(1000*60));
+
+const seconds = Math.floor((distance%(1000*60))/1000);
+
+document.getElementById("countdown").innerHTML =
+days + " Days " +
+hours + " Hours " +
+minutes + " Minutes " +
+seconds + " Seconds";
+
+if(distance < 0){
+clearInterval(timer);
+document.getElementById("countdown").innerHTML =
+"🎉 The Event Has Started!";
+}
+
+},1000);
+
+function registerAlert(){
+alert("Thank you for your interest in PRAVAAH! Registration will open soon.");
+}
+
+</script>
+
+</body>
+</html>
